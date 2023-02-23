@@ -7,8 +7,8 @@ if (isset($_GET['codigo'])) {
     // Cargar el archivo XML existente
     $xml = simplexml_load_file('files/productos.xml');
     if ($xml === false) {
-        $_SESSION['message'] = 'Error: No se puede cargar el archivo XML';
-        $_SESSION['message_type'] = 'danger';
+        $_SESSION['mensaje'] = 'Error: No se puede cargar el archivo XML';
+        $_SESSION['mensaje_type'] = 'danger';
         header('Location: index.php');
         exit();
     }
@@ -41,19 +41,8 @@ if (isset($_GET['codigo'])) {
         }
 
         $nuevoXml->asXML('files/productos.xml');
-
-        $_SESSION['message'] = 'Producto eliminado correctamente';
-        $_SESSION['message_type'] = 'danger';
-    } else {
-        $_SESSION['message'] = 'No se encontró el producto a eliminar';
-        $_SESSION['message_type'] = 'warning';
-    }
-} else {
-    $_SESSION['message'] = 'Error: No se recibió el código del producto a eliminar';
-    $_SESSION['message_type'] = 'danger';
+    };
 }
 
 header('Location: index.php');
 exit;
-
-?>

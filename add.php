@@ -7,13 +7,13 @@
 		// Definimos una expresión regular para validar el formato del código
 		$regex = "/^PROD\d{5}$/";
 		if (!preg_match($regex, $_POST['codigo'])) {
-		  $_SESSION['message'] = 'El código de producto debe tener el formato PROD#####';
-		  echo '<div style="background-color:#FF9999; width: 50%; margin: 0 auto; text-align: center; padding: 10px;">'.$_SESSION['message'].'</div>';
+		  $_SESSION['mensaje'] = 'El código de producto debe tener el formato PROD#####';
+		
 		  header('location: index.php');
 		  exit();
 		}
 		if ($_POST['existencias'] < 0) {
-			$_SESSION['message'] = 'Las existencias no pueden ser negativas';
+			$_SESSION['mensaje'] = 'Las existencias no pueden ser negativas';
 			header('location: index.php');
 			exit();
 		}
@@ -26,7 +26,7 @@
 		
 		// Si el código ya existe, mostramos un mensaje de error y detenemos la ejecución del script
 		if ($codigoExistente) {
-			$_SESSION['message'] = 'El código de producto ya existe. Intente con otro código.';
+			$_SESSION['mensaje'] = 'El código de producto ya existe. Intente con otro código.';
 			header('location: index.php');
 			exit();
 		}
@@ -48,13 +48,14 @@
 		$dom->loadXML($productos->asXML());
 		$dom->save('files/productos.xml');
 	
-		// Mostramos un mensaje de éxito y redirigimos al usuario de vuelta al índice
-		$_SESSION['message'] = 'Producto agregado exitosamente';
+
+
+	
 		header('location: index.php');
 	}
 	else{
-		// Si el usuario no ha enviado el formulario de adición, mostramos un mensaje de error y redirigimos al usuario de vuelta al índice
-		$_SESSION['message'] = 'Por favor, complete el formulario de adición primero';
+		// redirigimos al usuario de vuelta al índice
+		
+
 		header('location: index.php');
 	}
-?>

@@ -17,9 +17,7 @@ if (isset($_POST['edit'])) {
             // guardar los cambios en el archivo XML
             file_put_contents('files/productos.xml', $file->asXML());
 
-            // establecer mensaje de éxito
-            $_SESSION['message'] = "El producto con código " . $_POST['codigo'] . " ha sido actualizado exitosamente.";
-            $_SESSION['alert-class'] = "alert-success";
+         
 
             // redirigir de vuelta a la página principal
             header('location: index.php');
@@ -27,4 +25,3 @@ if (isset($_POST['edit'])) {
         }
     }
 }
-?>

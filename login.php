@@ -35,7 +35,8 @@
                 <div class="container-login-form-btn">
                     <div class="wrap-login-form-btn">
                         <div class="login-form-bgbtn"></div>
-                        <button type="submit" name="submit" class="login-form-btn">Ingresar</button>
+                    <button type="submit" name="submit" class="login-form-btn">Ingresar</button>
+                      
                     </div>
                 </div>
             </form>
@@ -69,7 +70,7 @@
                         header("location:index.php");
                         exit;
                 } else {
-                        /*Unsuccessful attempt: Set error message */
+                        /*Unsuccessful attempt: Set error mensaje */
                         $msg="<span style='color:red'>Invalid Login Details</span>";
                 }
         }
